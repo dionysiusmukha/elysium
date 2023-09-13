@@ -8,7 +8,7 @@
         <ul>
         <li><a href="http://www.kubsu.ru/index.php">Сайт КубГУ</a> <br /></li>
         <li><a href="https://www.kubsu.ru/index.php">Сайт КубГУ</a> <br /></li>
-        <li><a href="https://www.kubsu.ru/index.php"><img src="image.jpg" width="200" height="100"></a></li>
+        <li><a href="https://www.kubsu.ru/index.php"><img src="image.jpg" width="200" height="100" alt="Цветок"></a></li>
         <li><a href="./Page2.html">Ссылка на внутреннюю страницу</a></li>
         <li><a href="#part">Ссылка на фрагмент</a></li>
         <li><a href="https://dionysiusmukha.github.io/elysium/practice1/main/index.html?task=actjob&user&filter-allowed">Ссылка c тремя параметрами в URL</a></li>
@@ -19,39 +19,35 @@
         <li><a href="../Page3.html">Относительная ссылка на страницу в каталоге уровнем выше текущего</a></li>
         <li><p>Lorem ipsum <a href="https://translate.yandex.ru/dictionary/Испанский-Русский/dolor">dolor</a> sit amet consectetur adipisicing elit. Harum, vitae!</p></li>
         <li><a href="https://ru.wikipedia.org/wiki/Вторая_мировая_война#Битва_за_Атлантику">Ссылка на фрагмент  страницы стороннего сайта</a></li>
-        <li>
-            <map name="Napoleon">
-                <area shape="circle" coords="60,75,75" href="https://ru.wikipedia.org/wiki/Колонна">
-                <area shape="rect" coords="245,255,410,620"href="https://ru.wikipedia.org/wiki/Наполеон_I">
-            </map>
-        </li>
-            <img src="239e64627217692b2310860147a48df0_ce_800x532x0x145_cropped_1332x888.jpg" usemap="#Napoleon" width="532"; height="388">
-            <li><a href="">Ссылка с пустым href</a></li>
-            <li><a></a>https://ru.wikipedia.org/wiki/Наполеон_I</li>
-            <li><a href="https://dionysiusmukha.github.io/elysium/practice1/main/Page2.html" rel="nofollow">Cсылка, по которой запрещен переход поисковикам</a></li>
-            <li>
-                <noindex>
-                    <a href="https://ru.wikipedia.org/wiki/Битва_при_Ватерлоо" > Cсылка, запрещенная для индексации поисковикам</a>
-                </noindex>
-            </li>
+        <map name="Napoleon">
+            <area shape="circle" coords="60,75,75" href="https://ru.wikipedia.org/wiki/Колонна" alt="Колонна">
+            <area shape="rect" coords="245,255,410,620" href="https://ru.wikipedia.org/wiki/Наполеон_I" alt="Наполеон">
+        </map>
+        <img src="239e64627217692b2310860147a48df0_ce_800x532x0x145_cropped_1332x888.jpg" usemap="#Napoleon" width="532" ; height="388" alt="Наполеон I">
+        <li><a href="">Ссылка с пустым href</a></li>
+        <li><a></a>https://ru.wikipedia.org/wiki/Наполеон_I</li>
+        <li><a href="https://dionysiusmukha.github.io/elysium/practice1/main/Page2.html" rel="nofollow">Cсылка, по которой запрещен переход поисковикам</a></li>
+        <noindex>
+            <a href="https://ru.wikipedia.org/wiki/Битва_при_Ватерлоо" > Cсылка, запрещенная для индексации поисковикам</a>
+        </noindex>
         </ul>
         <ol>
             <li><a href="https://ru.wikipedia.org/wiki/Русско-японская_война#Предыстория" title="Ссылка на фрагмент предыстории русско-японской войны">Первая ссылка</a></li>
             <li><a href="https://ru.wikipedia.org/wiki/Русско-японская_война#Ход_войны" title="Ссылка на фрагмент хода русско-японской войны">Вторая ссылка</a></li>
             <li><a href="https://ru.wikipedia.org/wiki/Русско-японская_война#Итоги_войны" title="Ссылка на фрагмент итогов русско-японской войны">Третья ссылка</a></li>
         </ol>
-        <ul><a href="./ftp_auth.html">Ссылка на FTP</a></ul>
+        <a href="./ftp_auth.html">Ссылка на FTP</a>
         <form action="index.html" method="post">
-            <label for="text">ФИО</label>
+            <label>ФИО</label>
             <input type="text" id="text" name="fio" placeholder="Иванов Иван Иванович"><br />
 
-            <label for="tel">Номер телефона</label>
+            <label>Номер телефона</label>
             <input type="tel" id="tel" name="numbers" placeholder="79000000000"><br />
 
-            <label for="email">Почта</lavel>
+            <label>Почта</label>
             <input type="email" id="email" name="mail" placeholder="example@gmail.com"><br />
 
-            <label for="type">Дата рождения</label>
+            <label>Дата рождения</label>
             <input type="date" id="type" name="birthday"><br />
 
             <input type="radio" id="male" name = "gender" checked="checked"><label for="male" >Мужчина</label><br />
