@@ -5,8 +5,8 @@
 }
 
 .hw .navi {
+    height: inherit;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: inherit;
 }
