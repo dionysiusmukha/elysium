@@ -3,3 +3,9 @@
     height: 70px;
     box-shadow: 3px 10px -3px hsla(244, 100%, 50%, 0.102);
 }
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
