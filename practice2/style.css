@@ -4,7 +4,7 @@
     box-shadow: 3px 10px -3px hsl(143, 100%, 50%);
 }
 
-.menu {
+.navmenu .menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
