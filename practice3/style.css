@@ -34,14 +34,16 @@ body {
 
 .menu li {
     display: inline-block;
+    margin-top: -15px;
+    margin-left: 150px;
 }
 
 .menu li a{
     display: inline-block;
     color:darkolivegreen;
     text-decoration: none;
-    padding: 10px 10px;
     font-size: 35px;
+    padding: 10px 10px;
     opacity: 0.8;
     border-radius: 35px;
     background-color: rgba(188, 199, 94, 0.384);
@@ -58,6 +60,7 @@ body {
     text-decoration: none;
     color: brown;
     margin-left: 0%;
+    flex-direction: row;
 }
 
 .tableN {
@@ -132,15 +135,14 @@ tr:nth-child(odd){
 
     .menu li {
         display: inline-block;
-        margin-left: 0%;
-        margin-top: 100%;
+        margin-top: -15px;
+        margin-left: 150px;
     }
     
     .menu li a{
         display: inline-block;
         color:darkolivegreen;
         text-decoration: none;
-        padding: 10px 10px;
         font-size: 35px;
         opacity: 0.8;
         border-radius: 35px;
