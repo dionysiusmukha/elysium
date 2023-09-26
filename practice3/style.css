@@ -1,7 +1,9 @@
 .hw {
     width: 100%;
-    height: 150px;
+    height: 100%;
     box-shadow: 4px 4px 30px 1px rgba(110, 109, 17, 0.9);
+    order: -1;
+    flex-direction: column;
 }
 
 .hw .navi {
@@ -14,9 +16,14 @@
 .menu {
     list-style-type: none;
     padding-left: 0;
-    margin-left: 0%;
+    margin-left: 75%;
     margin-top: -15px;
-    
+    display: flex;
+    flex-flow: row nowrap;
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .menu li {
@@ -38,24 +45,21 @@
     opacity: 1;
 }
 
-.navi {
-    display: flex;
-    flex-flow: row nowrap;
-}
 
 .logo {
     font-weight: 100;
     font-size: 75px;
     text-decoration: none;
     color: brown;
-    margin-left: 43%;
+    margin-left: 0%;
 }
 
 .tableN {
     background-color: rgb(228, 221, 124);
     max-width: 300px;
     margin-left: 40%;
-    
+    display: flex;
+    order: 1;
 }
 
 .tableN table {
@@ -67,10 +71,15 @@
     margin-left: 40%;
     max-width: 300px;
     background-color: rgb(255, 249, 159);
+    display: flex;
+    flex-direction: column;
+    order: 3;
 }
 
 .body123 {
     margin-left: 40%;
+    flex-direction: column;
+    order: 2;
 }
 
 tr:nth-child(even){
@@ -84,7 +93,45 @@ tr:nth-child(odd){
     width: 100%;
     background-color: rgb(90, 199, 226);
     padding: 10px;
-    height: 35px;
+    height: 100%;
     margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    order: 3;
 }
 
+@media screen and (min-width: 800px) {
+    .hw {
+        width: 100%;
+        height: 150px;
+        box-shadow: 4px 4px 30px 1px rgba(110, 109, 17, 0.9);
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .logo {
+        font-weight: 100;
+        font-size: 75px;
+        text-decoration: none;
+        color: brown;
+        margin-left: 0%;
+    }
+
+    .menu li {
+        display: inline-block;
+    }
+    
+    .menu li a{
+        display: inline-block;
+        color:darkolivegreen;
+        text-decoration: none;
+        padding: 10px 10px;
+        font-size: 35px;
+        opacity: 0.8;
+        border-radius: 35px;
+        background-color: rgba(188, 199, 94, 0.384);
+    }
+    
+    .menu li a:hover{
+        opacity: 1;
+    }
+}
