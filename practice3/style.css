@@ -14,7 +14,7 @@
 .menu {
     list-style-type: none;
     padding-left: 0;
-    margin-left: 75%;
+    margin-left: 0%;
     margin-top: -15px;
     
 }
@@ -87,3 +87,4 @@ tr:nth-child(odd){
     height: 35px;
     margin-top: auto;
 }
+
