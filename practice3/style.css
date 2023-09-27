@@ -151,8 +151,4 @@ tr:nth-child(odd){
     .menu li a:hover{
         opacity: 1;
     }
-
-    #footer, .hw, .tableN, .form, .body123 {
-        order: 0;
-    }
 }
