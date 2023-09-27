@@ -87,8 +87,8 @@ body {
 .body123 {
     margin-left: 40%;
     flex-direction: column;
-    order: 2;
     display: flex;
+    order: 2;
 }
 
 tr:nth-child(even){
