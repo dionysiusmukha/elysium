@@ -151,11 +151,11 @@ tr:nth-child(odd){
     .menu li a:hover{
         opacity: 1;
     }
-    #footer {
+    .hw, tableN, .form, .body123 {
         display: flex;
         order: 0;
     }
-    .hw, tableN, .form, .body123 {
+    #footer {
         display: flex;
         order: 0;
     }
