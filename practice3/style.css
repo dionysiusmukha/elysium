@@ -37,7 +37,6 @@ body {
 }
 
 .menu li a{
-    display: inline-block;
     color:darkolivegreen;
     text-decoration: none;
     font-size: 35px;
