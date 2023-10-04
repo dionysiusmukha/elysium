@@ -1,0 +1,55 @@
+tr:nth-child(odd) {
+    background-color: aqua;
+}
+
+tr:nth-child(even) {
+    background-color: cadetblue;
+}
+
+
+.bodyLinks, .form, .tableN {
+    margin-left: 35%;
+}
+
+
+header {
+    background-color: blanchedalmond;
+    height: 200px;
+    display: flex;
+}
+
+.main {
+    display: flex;
+}
+
+.menu a {
+    color:rgb(145, 139, 56);
+    font-size: 30px;
+
+    margin-left: 90%;
+    margin-top: 50%;
+    text-decoration: none;
+}
+
+.menu {
+    display: inline-flex;
+}
+
+.main p {
+    font-size: 70px;
+    color: brown;
+    font-family: Verdana;
+    margin-left: 10%;
+    margin-bottom: 20%;
+}
+
+.logo {
+    margin-left: 10%;
+}
+
+#footer {
+    height: 50px;
+    background-color: antiquewhite;
+    display: flex;
+}
+

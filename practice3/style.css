@@ -6,16 +6,52 @@ tr:nth-child(even) {
     background-color: cadetblue;
 }
 
-
-.bodyLinks, .form, .tableN {
-    margin-left: 35%;
+body {
+    display: flex;
+    flex-direction: column;
 }
 
+.form {
+    margin-left: 40%;
+    order: 3;
+}
+
+.bodyLinks {
+    margin-left: 35%;
+    order: 2;
+}
+
+.tableN {
+    margin-left: 40%;
+    order: 1;
+}
+
+table {
+    text-align: center;
+}
+
+tr {
+    height: 40px;
+}
+
+td {
+    width: 50px;
+}
 
 header {
     background-color: blanchedalmond;
-    height: 200px;
+    height: 175px;
     display: flex;
+    order: -1;
+}
+.main p {
+    font-size: 70px;
+    color: brown;
+    font-family: Verdana;
+}
+
+.logo {
+    margin-left: 10%;
 }
 
 .main {
@@ -25,30 +61,24 @@ header {
 .menu a {
     color:rgb(145, 139, 56);
     font-size: 30px;
-
-    margin-left: 90%;
-    margin-top: 50%;
+    display: flex;
     text-decoration: none;
+    flex-direction: row;
+    margin-left: 70%;
+    margin-top: 15%;
 }
 
-.menu {
-    display: inline-flex;
-}
-
-.main p {
-    font-size: 70px;
-    color: brown;
-    font-family: Verdana;
-    margin-left: 10%;
-    margin-bottom: 20%;
-}
-
-.logo {
-    margin-left: 10%;
-}
 
 #footer {
     height: 50px;
     background-color: antiquewhite;
     display: flex;
+    order: 3;
+}
+
+@media all and (min-width: 800px) {
+    .menu a {
+        margin-left: 85%;
+        margin-top: 40%;
+    }
 }
