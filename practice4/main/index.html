@@ -6,17 +6,22 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body>
-                <div class ="hw order-0 order-md-0" >
+        <body>
+            <div class="row">
+                <div class ="hw" >
                     <header>
-                            <div class ="main container-fluid ">
+                            <div class ="main container-fluid order-first">
                                 <div class="row">
-                                    <a href="#" class="logo"><img src="891a2cab346ba8119d32a9dfafdb1d67.jpg" alt ="logo D" height="100"/></a>
-                                    <p class="mt-1 ms-2">Napoleon</p>
+                                    <div class="col-lg-1 col-md-1 col">
+                                        <a href="#" class="logo"><img src="891a2cab346ba8119d32a9dfafdb1d67.jpg" alt ="logo D" height="100"/></a>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col me-5">
+                                        <p>Napoleon</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="menu container-fluid">
-                                <div class="row">
+                                <div class="row justify-content-end">
                                         <a class="col-md-1 col-sm-12 text-center" href="#">Origins</a>
                                         <a class="col-md-1 col-sm-12 text-center" href="#">Unity</a>
                                         <a class="col-md-1 col-sm-12 text-center" href="#">Revelations</a>
@@ -24,10 +29,7 @@
                             </div>
                     </header>
                 </div>
-            </div>
-        </div>
-        <div class="row container-fluid">
-            <div class="bodyLinks mx-auto order-1 gy-5">
+            <div class="container-fluid bodyLinks mx-auto gy-5 order-md-1 order-2">
                 <a id="part"></a>Ссылка на фрагмент
                 <ul>
                     <li><a href="http://www.kubsu.ru/index.php">Сайт КубГУ</a></li>
@@ -64,98 +66,97 @@
                 </ol>
                 <ul><li><a href="ftp://user:password@example.com/myfile.zip">Файл на сервере FTP с авторизацией</a></li></ul>
             </div>
-        </div>
-        <div class="tableN mx-auto order-0 order-md-1 container-fluid">
-            <table>
-                <tr>
-                    <td></td>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                    <td>D</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                </tr>
-                <tr>
-                    <td>B</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                </tr>
-                <tr>
-                    <td>C</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>D</td>
-                    <td>13</td>
-                    <td>14</td>
-                    <td>15</td>
-                    <td>16</td>
-                </tr>
-                <tr>
-                    <td>E</td>
-                    <td colspan="2">x</td>
-                    <td>19</td>
-                    <td rowspan="2">x</td>
-                </tr>
-                <tr>
-                    <td>F</td>
-                    <td>21</td>
-                    <td>22</td>
-                    <td>23</td>
-                </tr>
-            </table>
-        </div>
-    <div class = "form mx-auto order-1 container-fluid">
-        <form action="index.html" method="post">
-            <label>ФИО</label>
-            <input type="text" id="text" name="fio" placeholder="Иванов Иван Иванович"><br />
+                <div class="tableN mx-auto container-fluid order-1 order-md-1">
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>A</td>
+                            <td>B</td>
+                            <td>C</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>E</td>
+                            <td colspan="2">x</td>
+                            <td>19</td>
+                            <td rowspan="2">x</td>
+                        </tr>
+                        <tr>
+                            <td>F</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                        </tr>
+                    </table>
+                </div>
+            <div class = "form mx-auto container-fluid order-last">
+                <form action="index.html" method="post">
+                    <label>ФИО</label>
+                    <input type="text" id="text" name="fio" placeholder="Иванов Иван Иванович"><br />
 
-            <label>Номер телефона</label>
-            <input type="tel" id="tel" name="numbers" placeholder="79000000000"><br />
+                    <label>Номер телефона</label>
+                    <input type="tel" id="tel" name="numbers" placeholder="79000000000"><br />
 
-            <label>Почта</label>
-            <input type="email" id="email" name="mail" placeholder="example@gmail.com"><br />
+                    <label>Почта</label>
+                    <input type="email" id="email" name="mail" placeholder="example@gmail.com"><br />
 
-            <label>Дата рождения</label>
-            <input type="date" id="type" name="birthday"><br />
+                    <label>Дата рождения</label>
+                    <input type="date" id="type" name="birthday"><br />
 
-            <input type="radio" id="male" name = "gender" checked="checked"><label for="male" >Мужчина</label><br />
-            <input type="radio" id="female" name = "gender"><label for="male">Женщина</label><br />
-            <label>Любимый язык программирования</label><br />
-            <select name="language[]" multiple="multiple" size="11">
-                <option value="1">Pascal</option>
-                <option value="2">C</option>
-                <option value="3">C++</option>
-                <option value="4">JavaScript</option>
-                <option value="5">PHP</option>
-                <option value="6">Python</option>
-                <option value="7">Java</option>
-                <option value="8">Haskel</option>
-                <option value="9">Clojure</option>
-                <option value="10">Prolog</option>
-                <option value="11">Scala</option>
-            </select><br />
-            <label>Биография</label><br />
-            <textarea id="bio" name="bio"></textarea><br />
-            <input type="checkbox" checked="checked" id="check" name = "checkbox"><label for="check">С контрактом ознакомлен(а)</label><br />
-            <input type="submit" value="Сохранить">
-        </form>
-        </div> 
-        <div class="footer order-1 container-fluid">
-            <p> © Муха Денис</p>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    </body>
-
+                    <input type="radio" id="male" name = "gender" checked="checked"><label for="male" >Мужчина</label><br />
+                    <input type="radio" id="female" name = "gender"><label for="male">Женщина</label><br />
+                    <label>Любимый язык программирования</label><br />
+                    <select name="language[]" multiple="multiple" size="11">
+                        <option value="1">Pascal</option>
+                        <option value="2">C</option>
+                        <option value="3">C++</option>
+                        <option value="4">JavaScript</option>
+                        <option value="5">PHP</option>
+                        <option value="6">Python</option>
+                        <option value="7">Java</option>
+                        <option value="8">Haskel</option>
+                        <option value="9">Clojure</option>
+                        <option value="10">Prolog</option>
+                        <option value="11">Scala</option>
+                    </select><br />
+                    <label>Биография</label><br />
+                    <textarea id="bio" name="bio"></textarea><br />
+                    <input type="checkbox" checked="checked" id="check" name = "checkbox"><label for="check">С контрактом ознакомлен(а)</label><br />
+                    <input type="submit" value="Сохранить">
+                </form>
+                </div> 
+            <div class="footer my-2 order-last">
+                <p> © Муха Денис</p>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+            </div>
+        </body>
 </html>
