@@ -7,47 +7,26 @@ tr:nth-child(even) {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
     background-color: azure;
-    margin: 0;
 }
 
 
 
 header {
     background-color: bisque;
-    order: -1;
-}
-
-.main {
-    display: flex;
-    flex-direction: row;
 }
 
 .main p {
     font-size: 50px;
     color: brown;
-    margin-left: 10%;
 }
 
 .menu a {
     text-decoration: none;
-    font-size: 40px;
+    font-size: 30px;
     color: chocolate;
-    display: flex;
-    flex-direction: column;
 }
 
-.hw {
-    max-height: 300px;
-}
-
-
-.tableN {
-    order: 0;
-    margin-left: 25%;
-}
 
 td {
     height: 50px;
@@ -58,49 +37,14 @@ tr {
     text-align: center;
 }
 
-.bodyLinks {
-    margin-left: 35%;
-    order: 1;
-}
 
 .form {
-    margin-left: 35%;
     background-color: azure;
-    order: 2;
 }
 
-.menu {
-    margin-left: 40%;
-    margin-bottom: 20%;
-}
-
-
-
-#footer {
-    order: 3;
-}
 
 @media (min-width: 800px) {
-    #footer, header, .tableN, .bodyLinks, .form {
-        order: 0;
-    }
-    .main p {
-        margin-left: 2%;
-    }
-    .menu {
-        display: flex;
-    }
-    header {
-        max-height: 300px;
-    }
-    .menu a {
-        margin-left: 10%;
-    }
-    .tableN {
-        order: 0;
-        margin-left: 35%;
-    }
-    .hw {
-        max-height: 210px;
+    .menu a{
+        font-size: 40px;
     }
 }
