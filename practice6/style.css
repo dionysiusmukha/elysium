@@ -22,7 +22,6 @@ header {
   display: flex;
   height: 37px;
   justify-content: center;
-  margin-left: 20px;
 }
 
 .myInput input {
