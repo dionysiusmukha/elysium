@@ -1,11 +1,59 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <title>WWW</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <p>Hello</p>
-    </body>
-
+  <head>
+    <title>WWW</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="myCalc">
+          <h1>Калькулятор стоимости заказа</h1>
+        </div>
+      </header>
+      <form id="form">
+      <div class="textCount">
+        <div class="textRadio" id="radio">
+          <p>Выберете игру:</p>
+          <label for="radio1">
+            <input type="radio" id="radio1" name="choice" required checked />
+            S.T.A.L.K.E.R.: Shadow of Chernobyl
+          </label>
+          <label for="radio2">
+            <input type="radio" id="radio2" name="choice" required />
+            S.T.A.L.K.E.R.: Clear Sky
+          </label>
+          <label for="radio3">
+            <input type="radio" id="radio3" name="choice" required />
+            S.T.A.L.K.E.R.: Call of Pripyat
+          </label>
+        </div>
+        <div id="Select">
+          <label for="edition">Выберите издание</label>
+          <select class="selection" name="edition" aria-label="Выберите издание">
+            <option selected value="standard">Standard</option>
+            <option value = "gold">Gold</option>
+            <option value="deluxe">Deluxe</option>
+          </select>
+        </div>
+        <div class="myInput">
+          <p>Введите количество</p>
+          <input
+            class="form-control"
+            name="number"
+            id="Number"
+            type="number"
+            placeholder="Количество единиц"
+          />
+          <div class="check" id="checkbox">
+            <input class="check-input" type="checkbox" name="checkbox" id="flexCheckDefault" checked>
+            <label calss="check-label" for="flexCheckDefault">Season Pass</label>
+          </div>
+        </div>
+    </div>
+    <input class="form-control" type="text" name="result" value="Результат: " aria-label="Пример отключенного входа" disabled readonly>
+  </form>
+    <script src="../script.js" defer></script>
+  </body>
 </html>

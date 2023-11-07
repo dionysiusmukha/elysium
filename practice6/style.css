@@ -1,0 +1,55 @@
+header {
+  background-color: rgb(241, 12, 100);
+  border-radius: 50px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.myCalc {
+  text-align: center;
+}
+
+.textRadio {
+  display: flex;
+  flex-direction: column;
+}
+
+.myInput {
+  display: flex;
+  height: 37px;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.myInput input {
+  margin-left: 20px;
+  margin-top: 17px;
+}
+
+.textCount {
+  display: flex;
+  flex-direction: column;
+}
+
+.textRadio {
+  margin-left: 762px;
+}
+
+#Select {
+  margin-top: 10px;
+  margin-left: 767px;
+}
+
+.check {
+  margin-left: 35px;
+  margin-top: 3px;
+}
+
+.form-control {
+  margin-left: 770px;
+  margin-top: 27px;
+}
