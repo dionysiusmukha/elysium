@@ -1,6 +1,6 @@
 
 
-window.addEventListener('DOMContentLoaded', function (event) {
+window.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('form');
   const radio = document.getElementById('radio');
   const radio1 = document.getElementById('radio1');
