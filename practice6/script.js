@@ -3,11 +3,11 @@ const radio = document.getElementById('radio');
 const radio1 = document.getElementById('radio1');
 const radio2 = document.getElementById('radio2');
 const radio3 = document.getElementById('radio3');
-
+window.addEventListener('DOMContentLoaded', function (event) {
 FormChangeHandler();
-
 form.addEventListener('change', getFormValue);
 radio.addEventListener('change', FormChangeHandler);
+}
 
 function FormChangeHandler() {
   if (radio1.checked) {
