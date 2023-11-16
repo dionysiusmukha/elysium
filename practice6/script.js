@@ -17,7 +17,7 @@ function getFormValue(event) {
   const Edition = form.querySelector('[name ="edition"]');
   const Result = form.querySelector('[name ="result"]');
   const CheckBox = form.querySelector('[name ="checkbox"]');
-  if (Number.value > 0 || Number.value === null) {
+  if (Number.value > 0 || Number.value === '') {
     if (radio1.checked) {
       Result.value = Number.value * 2000;
     } else if (radio2.checked) {
