@@ -29,6 +29,7 @@ function getFormValue(event) {
       if (CheckBox.checked) Result.value = Number.value * 3500 + 500;
       else Result.value = Number.value * 3500;
     }
+}
   else alert('Количество товаров должно быть положительным');
 }
 
