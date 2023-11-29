@@ -6,5 +6,12 @@ body {
 
 .gallery {
     max-width: 800px;
-    margin: 60px;
+    margin: 60px
+}
+
+@media (min-width: 800px) {
+    .gallery{
+        margin-top: 5%;
+        margin-left: 24%;
+    }
 }
