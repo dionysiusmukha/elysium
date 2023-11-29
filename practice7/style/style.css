@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color:cadetblue;
+}
+
+.gallery {
+    max-width: 800px;
+    margin: 60px;
+}
