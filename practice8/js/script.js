@@ -28,7 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    
+    window.addEventListener('beforeunload', function (event) {
+        event.preventDefault();
+        popup.style.display = 'none';
+        window.location.replace(window.location.origin + window.location.pathname);
+    });
 
     submitFormButton.addEventListener('click', function () {
 
