@@ -4,28 +4,37 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupForm = document.getElementById('popupForm');
     const feedbackForm = document.getElementById('feedbackForm');
     const statusMessage = document.getElementById('statusMessage');
+    const isFormOpened = localStorage.getItem('isFormOpened') === 'true';
 
-    openFormBtn.addEventListener('click', function () {
+    // Скрываем кнопку открытия формы, если форма уже открывалась
+    if (isFormOpened) {
         openFormBtn.style.display = 'none';
+    }
+
+    // Открытие формы
+    openFormBtn.addEventListener('click', function () {
+        openFormBtn.style.display = 'none'; // Скрытие кнопки
         popupForm.style.display = 'block';
-        history.pushState({ formOpen: true }, null, ''); 
-        loadFormData(); 
+        history.pushState({ formOpen: true }, null, ''); // Изменение URL
+        loadFormData(); // Загрузка данных из LocalStorage
+        localStorage.setItem('isFormOpened', 'true'); // Сохранение информации о состоянии формы
     });
 
+    // Закрытие формы
     closeFormBtn.addEventListener('click', function () {
-        openFormBtn.style.display = 'inline-block';
+        openFormBtn.style.display = 'inline-block'; // Возвращение видимости кнопки
         popupForm.style.display = 'none';
-        history.pushState(null, null, '');
+        history.pushState(null, null, ''); // Возврат к предыдущему URL
     });
 
-    
+    // Обработка отправки формы
     feedbackForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        saveFormData(); 
-        sendFormData();
+        saveFormData(); // Сохранение данных в LocalStorage
+        sendFormData(); // Отправка данных на сервер
     });
 
-    
+    // Обработка нажатия "Назад" в браузере
     window.addEventListener('popstate', function (event) {
         if (event.state && event.state.formOpen) {
             popupForm.style.display = 'block';
@@ -34,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    
+    // Функция сохранения данных в LocalStorage
     function saveFormData() {
         const formFields = ['fullName', 'email', 'phone', 'organization', 'message', 'agree'];
         formFields.forEach(function (field) {
@@ -43,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    
+    // Функция загрузки данных из LocalStorage
     function loadFormData() {
         const formFields = ['fullName', 'email', 'phone', 'organization', 'message', 'agree'];
         formFields.forEach(function (field) {
@@ -52,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    
+    // Функция отправки данных на сервер
     function sendFormData() {
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://example.com/submit', true);
@@ -68,16 +77,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         xhr.onload = function () {
             if (xhr.status === 200) {
-                statusMessage.textContent = 'Форма отправлена';
-                feedbackForm.reset();
-                localStorage.clear(); 
+                statusMessage.textContent = 'Форма успешно отправлена!';
+                feedbackForm.reset(); // Очистка формы
+                localStorage.clear(); // Очистка данных в LocalStorage
             } else {
-                statusMessage.textContent = 'Ошибка. Не удалось отправить форму';
+                statusMessage.textContent = 'Произошла ошибка при отправке формы.';
             }
         };
 
         xhr.onerror = function () {
-            statusMessage.textContent = 'Ошибка. Не удалось отправить форму';
+            statusMessage.textContent = 'Произошла ошибка при отправке формы.';
         };
 
         xhr.send(JSON.stringify(formData));

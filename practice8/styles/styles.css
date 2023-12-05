@@ -5,7 +5,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    max-width: 400px; 
+    max-width: 400px;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -17,8 +17,26 @@
     color: green;
 }
 
+/* Стили для каждого элемента формы */
+.popup-form label {
+    display: block; /* Каждая метка на отдельной строке */
+    margin-bottom: 5px; /* Отступ между метками и полями ввода */
+}
+
+.popup-form input,
+.popup-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px; /* Отступ между полями ввода */
+}
+
+.popup-form button {
+    display: block; /* Кнопка на отдельной строке */
+}
+
 @media (max-width: 600px) {
     .popup-form {
         width: 90%;
+        max-width: 300px;
     }
 }
