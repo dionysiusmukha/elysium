@@ -1,59 +1,60 @@
-$(document).ready(function () {
-    const form = $('#contactForm');
-    const statusMessage = $('#statusMessage');
-    const popup = $('#feedbackForm');
-    const openBtn = $('#openFormBtn');
-    const closeBtn = $('#closeFormBtn');
-    var href = $(this).attr("action");
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contactForm');
+    const statusMessage = document.getElementById('statusMessage');
+    const popup = document.getElementById('feedbackForm');
+    const openBtn = document.getElementById('openFormBtn');
+    const closeBtn = document.getElementById('closeFormBtn');
 
-    // Check if form data is present in localStorage
     const savedFormData = JSON.parse(localStorage.getItem('formData')) || {};
-    Object.keys(savedFormData).forEach(key => $(`#${key}`).val(savedFormData[key]));
+    Object.keys(savedFormData).forEach(key => document.getElementById(key).value = savedFormData[key]);
 
-    // Open form on button click
-    openBtn.click(function () {
-        popup.show();
+    openBtn.addEventListener('click', function () {
+        popup.style.display = 'block';
         history.pushState({ formOpen: true }, 'Форма обратной связи', '?formOpen=true');
     });
 
-    // Close form on close button click
-    closeBtn.click(function () {
-        popup.hide();
+    closeBtn.addEventListener('click', function () {
+        popup.style.display = 'none';
         history.pushState({}, 'Форма обратной связи', '?');
     });
 
-    // Handle browser back button
     window.onpopstate = function (event) {
         if (event.state && event.state.formOpen) {
-            popup.show();
+            popup.style.display = 'block';
         } else {
-            popup.hide();
+            popup.style.display = 'none';
         }
     };
 
-    // Handle form submission
-    form.submit(function (event) {
+    form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        // Collect form data
-        const formData = {};
-        form.serializeArray().forEach(item => formData[item.name] = item.value);
-
-        // Save form data to localStorage
-        localStorage.setItem('formData', JSON.stringify(formData));
-
-        // Simulate form submission with AJAX
-        $.ajax({
-            type: 'POST',
-            url: href,
-            data: formData,
-            success: function (response) {
-                statusMessage.text('Форма успешно отправлена!');
-                form[0].reset();
-            },
-            error: function (error) {
-                statusMessage.text('Ошибка при отправке формы. Попробуйте еще раз.');
+        const formData = new URLSearchParams();
+        Array.from(form.elements).forEach(item => {
+            if (item.name) {
+                formData.append(item.name, item.value);
             }
         });
+
+        localStorage.setItem('formData', JSON.stringify(Object.fromEntries(formData)));
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'YOUR_BACKEND_URL', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                statusMessage.textContent = 'Форма успешно отправлена!';
+                form.reset();
+            } else {
+                statusMessage.textContent = 'Ошибка при отправке формы. Попробуйте еще раз.';
+            }
+        };
+
+        xhr.onerror = function () {
+            statusMessage.textContent = 'Ошибка при отправке формы. Попробуйте еще раз.';
+        };
+
+        xhr.send(formData);
     });
 });
