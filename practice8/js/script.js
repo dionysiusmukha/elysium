@@ -1,60 +1,66 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('contactForm');
-    const statusMessage = document.getElementById('statusMessage');
-    const popup = document.getElementById('feedbackForm');
-    const openBtn = document.getElementById('openFormBtn');
-    const closeBtn = document.getElementById('closeFormBtn');
+    const openFormButton = document.getElementById('openFormButton');
+    const popup = document.getElementById('popup');
+    const feedbackForm = document.getElementById('feedbackForm');
+    const submitFormButton = document.getElementById('submitFormButton');
+    const messageContainer = document.getElementById('messageContainer');
 
-    const savedFormData = JSON.parse(localStorage.getItem('formData')) || {};
-    Object.keys(savedFormData).forEach(key => document.getElementById(key).value = savedFormData[key]);
+    // Check LocalStorage for saved form values
+    const storedFormValues = JSON.parse(localStorage.getItem('formValues')) || {};
+    for (const key in storedFormValues) {
+        if (Object.hasOwnProperty.call(storedFormValues, key)) {
+            const inputElement = document.getElementById(key);
+            if (inputElement) {
+                inputElement.value = storedFormValues[key];
+            }
+        }
+    }
 
-    openBtn.addEventListener('click', function () {
+    openFormButton.addEventListener('click', function () {
         popup.style.display = 'block';
-        history.pushState({ formOpen: true }, 'Форма обратной связи', '?formOpen=true');
+        history.pushState({ formOpen: true }, null, '#form');
     });
 
-    closeBtn.addEventListener('click', function () {
-        popup.style.display = 'none';
-        history.pushState({}, 'Форма обратной связи', '?');
-    });
-
-    window.onpopstate = function (event) {
-        if (event.state && event.state.formOpen) {
-            popup.style.display = 'block';
-        } else {
+    window.addEventListener('popstate', function (event) {
+        if (event.state === null || !event.state.formOpen) {
             popup.style.display = 'none';
         }
-    };
+    });
 
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
+    submitFormButton.addEventListener('click', function () {
+        // Collect form data
+        const formData = new FormData(feedbackForm);
 
-        const formData = new URLSearchParams();
-        Array.from(form.elements).forEach(item => {
-            if (item.name) {
-                formData.append(item.name, item.value);
-            }
+        // Save form values to LocalStorage
+        const formValues = {};
+        formData.forEach((value, key) => {
+            formValues[key] = value;
         });
+        localStorage.setItem('formValues', JSON.stringify(formValues));
 
-        localStorage.setItem('formData', JSON.stringify(Object.fromEntries(formData)));
-
+        // Simulate form submission
+        // Replace the URL with the actual backend endpoint
+        const submitURL = 'https://formcarry.com/s/7K-Ixu_vxd';
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://formcarry.com/s/7K-Ixu_vxd', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.open('POST', submitURL, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
 
         xhr.onload = function () {
             if (xhr.status >= 200 && xhr.status < 300) {
-                statusMessage.textContent = 'Форма успешно отправлена!';
-                form.reset();
+                messageContainer.textContent = 'Форма успешно отправлена!';
+                // Clear form values after successful submission
+                feedbackForm.reset();
+                localStorage.removeItem('formValues');
+                popup.style.display = 'none';
             } else {
-                statusMessage.textContent = 'Ошибка при отправке формы. Попробуйте еще раз.';
+                messageContainer.textContent = 'Ошибка при отправке формы. Пожалуйста, повторите попытку.';
             }
         };
 
         xhr.onerror = function () {
-            statusMessage.textContent = 'Ошибка при отправке формы. Попробуйте еще раз.';
+            messageContainer.textContent = 'Ошибка при отправке формы. Пожалуйста, повторите попытку.';
         };
 
-        xhr.send(formData);
+        xhr.send(JSON.stringify(formValues));
     });
 });
