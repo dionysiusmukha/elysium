@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://formcarry.com/s/7K-Ixu_vxd', true);
         //xhr.setRequestHeader('Content-Type', 'application/json');
-        //xhr.setRequestHeader('Accept', 'application/json');
+        xhr.setRequestHeader('Accept', 'application/json');
 
         xhr.onload = function () {
             if (xhr.status >= 200 && xhr.status < 300) {
