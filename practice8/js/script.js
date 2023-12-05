@@ -1,87 +1,58 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const openFormBtn = document.getElementById('openFormBtn');
-    const popupForm = document.getElementById('popupForm');
-    const feedbackForm = document.getElementById('feedbackForm');
-    const statusMessage = document.getElementById('statusMessage');
+$(document).ready(function () {
+    const form = $('#contactForm');
+    const statusMessage = $('#statusMessage');
+    const popup = $('#feedbackForm');
+    const openBtn = $('#openFormBtn');
+    const closeBtn = $('#closeFormBtn');
 
-    // Проверяем, открывалась ли форма при предыдущем визите
-    const isFormOpened = localStorage.getItem('isFormOpened') === 'true';
+    // Check if form data is present in localStorage
+    const savedFormData = JSON.parse(localStorage.getItem('formData')) || {};
+    Object.keys(savedFormData).forEach(key => $(`#${key}`).val(savedFormData[key]));
 
-    // Скрываем кнопку открытия формы, если форма уже открывалась
-    if (isFormOpened) {
-        openFormBtn.style.display = 'none';
-    }
-
-    // Открытие формы и скрытие кнопки
-    openFormBtn.addEventListener('click', function () {
-        openFormBtn.style.display = 'none'; // Скрытие кнопки
-        popupForm.style.display = 'block';
-        history.pushState({ formOpen: true }, null, ''); // Изменение URL
-        loadFormData(); // Загрузка данных из LocalStorage
-        localStorage.setItem('isFormOpened', 'true'); // Сохранение информации о состоянии формы
+    // Open form on button click
+    openBtn.click(function () {
+        popup.show();
+        history.pushState({ formOpen: true }, 'Форма обратной связи', '?formOpen=true');
     });
 
-    // Обработка события нажатия кнопки "Назад" в браузере
-    window.addEventListener('popstate', function (event) {
+    // Close form on close button click
+    closeBtn.click(function () {
+        popup.hide();
+        history.pushState({}, 'Форма обратной связи', '?');
+    });
+
+    // Handle browser back button
+    window.onpopstate = function (event) {
         if (event.state && event.state.formOpen) {
-            popupForm.style.display = 'block';
+            popup.show();
         } else {
-            openFormBtn.style.display = 'inline-block'; // Возвращение видимости кнопки
-            popupForm.style.display = 'none';
+            popup.hide();
         }
-    });
+    };
 
-    // Отправка формы при клике на кнопку "Отправить"
-    document.getElementById('submitForm').addEventListener('click', function () {
-        sendFormData(); // Отправка данных на сервер
-    });
+    // Handle form submission
+    form.submit(function (event) {
+        event.preventDefault();
 
-    // Функция для сохранения данных в LocalStorage
-    function saveFormData() {
-        const formFields = ['fullName', 'email', 'phone', 'organization', 'message', 'agree'];
-        formFields.forEach(function (field) {
-            const inputField = document.getElementById(field);
-            localStorage.setItem(field, inputField.value);
-        });
-    }
+        // Collect form data
+        const formData = {};
+        form.serializeArray().forEach(item => formData[item.name] = item.value);
 
-    // Функция для загрузки данных из LocalStorage
-    function loadFormData() {
-        const formFields = ['fullName', 'email', 'phone', 'organization', 'message', 'agree'];
-        formFields.forEach(function (field) {
-            const inputField = document.getElementById(field);
-            inputField.value = localStorage.getItem(field) || '';
-        });
-    }
+        // Save form data to localStorage
+        localStorage.setItem('formData', JSON.stringify(formData));
 
-    // Функция для отправки данных на сервер
-    function sendFormData() {
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://example.com/submit', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-
-        const formData = {
-            fullName: document.getElementById('fullName').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            organization: document.getElementById('organization').value,
-            message: document.getElementById('message').value
-        };
-
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                statusMessage.textContent = 'Форма успешно отправлена!';
-                feedbackForm.reset(); // Очистка формы
-                localStorage.clear(); // Очистка данных в LocalStorage
-            } else {
-                statusMessage.textContent = 'Произошла ошибка при отправке формы.';
+        // Simulate form submission with AJAX
+        $.ajax({
+            type: 'POST',
+            url: 'YOUR_BACKEND_URL', // Replace with your backend URL
+            data: formData,
+            success: function (response) {
+                statusMessage.text('Форма успешно отправлена!');
+                form[0].reset();
+            },
+            error: function (error) {
+                statusMessage.text('Ошибка при отправке формы. Попробуйте еще раз.');
             }
-        };
-
-        xhr.onerror = function () {
-            statusMessage.textContent = 'Произошла ошибка при отправке формы.';
-        };
-
-        xhr.send(JSON.stringify(formData));
-    }
+        });
+    });
 });

@@ -8,37 +8,36 @@
 </head>
 <body>
 
-<!-- Кнопка для открытия формы -->
 <button id="openFormBtn">Открыть форму</button>
 
-<!-- Попап формы -->
-<div id="popupForm" class="popup-form">
-    <form id="feedbackForm">
+<div class="popup" id="feedbackForm">
+    <div class="close-btn" id="closeFormBtn">&times;</div>
+    <form id="contactForm">
         <label for="fullName">ФИО:</label>
-        <input type="text" id="fullName" name="fullName" required>
-        
+        <input type="text" id="fullName" required>
+
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
+        <input type="email" id="email" required>
+
         <label for="phone">Телефон:</label>
-        <input type="tel" id="phone" name="phone" required>
-        
+        <input type="tel" id="phone" required>
+
         <label for="organization">Организация:</label>
-        <input type="text" id="organization" name="organization">
-        
+        <input type="text" id="organization">
+
         <label for="message">Сообщение:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-        
-        <label>
-            <input type="checkbox" id="agree" name="agree" required>
-            Согласен с политикой обработки персональных данных
-        </label>
-        
-        <button type="button" id="submitForm">Отправить</button>
+        <textarea id="message" rows="4" required></textarea>
+
+        <label for="agree">Согласие с политикой обработки персональных данных:</label>
+        <input type="checkbox" id="agree" required>
+
+        <button type="submit" id="submitFormBtn">Отправить</button>
     </form>
     <div id="statusMessage"></div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="../js/script.js"></script>
+
 </body>
 </html>
