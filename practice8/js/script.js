@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Replace the URL with the actual backend endpoint
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://formcarry.com/s/7K-Ixu_vxd', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.setRequestHeader('Accept', 'application/json');
+        //xhr.setRequestHeader('Content-Type', 'application/json');
+        //xhr.setRequestHeader('Accept', 'application/json');
 
         xhr.onload = function () {
             if (xhr.status >= 200 && xhr.status < 300) {
@@ -61,6 +61,6 @@ document.addEventListener('DOMContentLoaded', function () {
             messageContainer.textContent = 'Ошибка при отправке формы. Пожалуйста, повторите попытку.';
         };
 
-        xhr.send(JSON.stringify(formValues));
+        xhr.send(formData);
     });
 });
