@@ -5,17 +5,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const feedbackForm = document.getElementById('feedbackForm');
     const statusMessage = document.getElementById('statusMessage');
 
-    
     openFormBtn.addEventListener('click', function () {
+        openFormBtn.style.display = 'none';
         popupForm.style.display = 'block';
         history.pushState({ formOpen: true }, null, ''); 
-        loadFormData();
+        loadFormData(); 
     });
 
-    
     closeFormBtn.addEventListener('click', function () {
+        openFormBtn.style.display = 'inline-block';
         popupForm.style.display = 'none';
-        history.pushState(null, null, ''); 
+        history.pushState(null, null, '');
     });
 
     
