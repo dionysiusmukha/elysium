@@ -21,15 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
         history.pushState({ formOpen: true }, null, '#form');
     });
 
-    window.addEventListener('popstate', function (event) {
-        if (event.state === null || !event.state.formOpen) {
-            popup.style.display = 'none';
-        }
-    });
-    window.addEventListener('beforeunload', function () {
+    window.addEventListener('popstate', () => {
         popup.style.display = 'none';
-        history.pushState(null, null, window.location.pathname);
-    });
+      });
 
     submitFormButton.addEventListener('click', function () {
 
