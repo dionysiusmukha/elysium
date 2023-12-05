@@ -24,14 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('popstate', function (event) {
         if (event.state === null || !event.state.formOpen) {
             popup.style.display = 'none';
+            window.location.replace(window.location.origin + window.location.pathname);
         }
     });
 
-    window.addEventListener('beforeunload', function (event) {
-        event.preventDefault();
-        popup.style.display = 'none';
-        history.pushState(null, null, window.location.pathname);
-    });
+    
 
     submitFormButton.addEventListener('click', function () {
 
