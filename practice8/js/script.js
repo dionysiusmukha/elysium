@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
             popup.style.display = 'none';
         }
     });
+    window.addEventListener('beforeunload', function () {
+        popup.style.display = 'none';
+        history.pushState(null, null, window.location.pathname);
+    });
 
     submitFormButton.addEventListener('click', function () {
 
