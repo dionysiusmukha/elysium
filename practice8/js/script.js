@@ -44,7 +44,7 @@ $(document).ready(function () {
         // Simulate form submission with AJAX
         $.ajax({
             type: 'POST',
-            url: 'https://formcarry.com/s/7K-Ixu_vxd',
+            url: href,
             data: formData,
             success: function (response) {
                 statusMessage.text('Форма успешно отправлена!');
