@@ -28,6 +28,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     submitFormButton.addEventListener('click', function () {
+
+        if (!feedbackForm.checkValidity()) {
+            messageContainer.textContent = 'Пожалуйста, заполните все обязательные поля и установите чекбокс.';
+            return;
+        }
+
         // Collect form data
         const formData = new FormData(feedbackForm);
 
