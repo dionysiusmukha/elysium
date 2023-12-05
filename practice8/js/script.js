@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('formData', JSON.stringify(Object.fromEntries(formData)));
 
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'YOUR_BACKEND_URL', true);
+        xhr.open('POST', 'https://formcarry.com/s/7K-Ixu_vxd', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         xhr.onload = function () {
