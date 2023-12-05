@@ -1,3 +1,4 @@
+
 .popup-form {
     display: none;
     position: fixed;
@@ -12,31 +13,26 @@
     z-index: 1000;
 }
 
+/* Стили для каждой строки в форме */
+.popup-form label,
+.popup-form input,
+.popup-form textarea,
+.popup-form button {
+    display: block;
+    margin-bottom: 10px;
+}
+
 #statusMessage {
     margin-top: 10px;
     color: green;
 }
 
-/* Стили для каждого элемента формы */
-.popup-form label {
-    display: block; /* Каждая метка на отдельной строке */
-    margin-bottom: 5px; /* Отступ между метками и полями ввода */
-}
-
-.popup-form input,
-.popup-form textarea {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 10px; /* Отступ между полями ввода */
-}
-
-.popup-form button {
-    display: block; /* Кнопка на отдельной строке */
-}
-
-@media (max-width: 600px) {
-    .popup-form {
-        width: 90%;
-        max-width: 300px;
-    }
+/* Стили для кнопки открытия формы */
+#openFormBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }

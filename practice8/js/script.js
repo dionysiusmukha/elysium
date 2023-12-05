@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     const openFormBtn = document.getElementById('openFormBtn');
-    const closeFormBtn = document.getElementById('closeFormBtn');
     const popupForm = document.getElementById('popupForm');
     const feedbackForm = document.getElementById('feedbackForm');
     const statusMessage = document.getElementById('statusMessage');
+
+    // Проверяем, открывалась ли форма при предыдущем визите
     const isFormOpened = localStorage.getItem('isFormOpened') === 'true';
 
     // Скрываем кнопку открытия формы, если форма уже открывалась
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         openFormBtn.style.display = 'none';
     }
 
-    // Открытие формы
+    // Открытие формы и скрытие кнопки
     openFormBtn.addEventListener('click', function () {
         openFormBtn.style.display = 'none'; // Скрытие кнопки
         popupForm.style.display = 'block';
@@ -20,30 +21,22 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('isFormOpened', 'true'); // Сохранение информации о состоянии формы
     });
 
-    // Закрытие формы
-    closeFormBtn.addEventListener('click', function () {
-        openFormBtn.style.display = 'inline-block'; // Возвращение видимости кнопки
-        popupForm.style.display = 'none';
-        history.pushState(null, null, ''); // Возврат к предыдущему URL
-    });
-
-    // Обработка отправки формы
-    feedbackForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        saveFormData(); // Сохранение данных в LocalStorage
-        sendFormData(); // Отправка данных на сервер
-    });
-
-    // Обработка нажатия "Назад" в браузере
+    // Обработка события нажатия кнопки "Назад" в браузере
     window.addEventListener('popstate', function (event) {
         if (event.state && event.state.formOpen) {
             popupForm.style.display = 'block';
         } else {
+            openFormBtn.style.display = 'inline-block'; // Возвращение видимости кнопки
             popupForm.style.display = 'none';
         }
     });
 
-    // Функция сохранения данных в LocalStorage
+    // Отправка формы при клике на кнопку "Отправить"
+    document.getElementById('submitForm').addEventListener('click', function () {
+        sendFormData(); // Отправка данных на сервер
+    });
+
+    // Функция для сохранения данных в LocalStorage
     function saveFormData() {
         const formFields = ['fullName', 'email', 'phone', 'organization', 'message', 'agree'];
         formFields.forEach(function (field) {
@@ -52,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Функция загрузки данных из LocalStorage
+    // Функция для загрузки данных из LocalStorage
     function loadFormData() {
         const formFields = ['fullName', 'email', 'phone', 'organization', 'message', 'agree'];
         formFields.forEach(function (field) {
@@ -61,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Функция отправки данных на сервер
+    // Функция для отправки данных на сервер
     function sendFormData() {
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://example.com/submit', true);

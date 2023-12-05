@@ -1,43 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма</title>
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<button id="openFormBtn">Открыть</button>
+<!-- Кнопка для открытия формы -->
+<button id="openFormBtn">Открыть форму</button>
 
+<!-- Попап формы -->
 <div id="popupForm" class="popup-form">
     <form id="feedbackForm">
         <label for="fullName">ФИО:</label>
         <input type="text" id="fullName" name="fullName" required>
-
+        
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
-
+        
         <label for="phone">Телефон:</label>
         <input type="tel" id="phone" name="phone" required>
-
+        
         <label for="organization">Организация:</label>
         <input type="text" id="organization" name="organization">
-
+        
         <label for="message">Сообщение:</label>
         <textarea id="message" name="message" rows="4" required></textarea>
-
+        
         <label>
             <input type="checkbox" id="agree" name="agree" required>
             Согласен с политикой обработки персональных данных
         </label>
-
+        
         <button type="button" id="submitForm">Отправить</button>
     </form>
-    <button type="button" id="closeFormBtn">Закрыть форму</button>
     <div id="statusMessage"></div>
 </div>
 
-<script src="../js/script.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
