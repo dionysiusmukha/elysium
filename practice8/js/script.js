@@ -4,6 +4,7 @@ $(document).ready(function () {
     const popup = $('#feedbackForm');
     const openBtn = $('#openFormBtn');
     const closeBtn = $('#closeFormBtn');
+    var href = $(this).attr("action");
 
     // Check if form data is present in localStorage
     const savedFormData = JSON.parse(localStorage.getItem('formData')) || {};
