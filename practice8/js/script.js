@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const submitFormButton = document.getElementById('submitFormButton');
     const messageContainer = document.getElementById('messageContainer');
 
-    // Check LocalStorage for saved form values
+    
     const storedFormValues = JSON.parse(localStorage.getItem('formValues')) || {};
     for (const key in storedFormValues) {
         if (Object.hasOwnProperty.call(storedFormValues, key)) {
@@ -41,30 +41,30 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // Collect form data
+        
         const formData = new FormData(feedbackForm);
 
-        // Save form values to LocalStorage
+        
         const formValues = {};
         formData.forEach((value, key) => {
             formValues[key] = value;
         });
         localStorage.setItem('formValues', JSON.stringify(formValues));
 
-        // Simulate form submission
-        // Replace the URL with the actual backend endpoint
+        
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://formcarry.com/s/7K-Ixu_vxd', true);
-        //xhr.setRequestHeader('Content-Type', 'application/json');
+
         xhr.setRequestHeader('Accept', 'application/json');
 
         xhr.onload = function () {
             if (xhr.status >= 200 && xhr.status < 300) {
                 messageContainer.textContent = 'Форма успешно отправлена!';
-                // Clear form values after successful submission
+
                 feedbackForm.reset();
                 localStorage.removeItem('formValues');
                 popup.style.display = 'none';
+                window.location.href = window.location.origin + window.location.pathname;
             } else {
                 messageContainer.textContent = 'Ошибка при отправке формы. Пожалуйста, повторите попытку.';
             }
