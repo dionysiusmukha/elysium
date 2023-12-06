@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     submitFormButton.addEventListener('click', function () {
 
         if (!feedbackForm.checkValidity()) {
-            messageContainer.textContent = 'Пожалуйста, заполните все обязательные поля и установите чекбокс.';
+            messageContainer.textContent = 'Пожалуйста, заполните все обязательные поля и установите чекбокс. Проверьте, чтобы в поле телефона были только цифры';
             return;
         }
 
